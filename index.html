@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="description" content="IMPAC2 — Catálogo digital mayorista." />
+  <title>IMPAC2 | Catálogo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <a href="#main" class="skiplink">Saltar al contenido</a>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar__left">
+      <div class="topbar__cluster">
+        <button class="iconbtn" id="btnMenu" type="button" aria-label="Abrir menú">☰</button>
+        <button class="iconbtn iconbtn--home" id="btnHome" type="button" aria-label="Inicio">🏠</button>
+        <button class="iconbtn iconbtn--cats" id="btnCategories" type="button" aria-label="Categorías">🏷️</button>
+      </div>
+
+      <div class="topbar__brand">
+        <div class="topbar__title">Elegí la tela</div>
+        <div class="topbar__subtitle muted">¿Para qué la necesitás?</div>
+      </div>
+    </div>
+
+    <div class="topbar__right">
+      <div class="search">
+        <span class="search__icon" aria-hidden="true">🔎</span>
+        <input id="searchInput" type="search" placeholder="Buscar tela, uso, color…" />
+        <button class="search__clear" id="clearSearch" type="button" aria-label="Limpiar búsqueda">✕</button>
+      </div>
+
+      <button class="iconbtn" id="btnDownload" type="button" aria-label="Descargar PDF">⬇️</button>
+
+      <button class="basket" id="btnBasket" type="button" aria-label="Abrir carrito">
+        🛒 <span class="basket__count" id="basketCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- DRAWER -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__panel">
+      <div class="brand">
+        <div class="brand__logo">I2</div>
+        <div>
+          <div class="brand__name">IMPAC2</div>
+          <div class="brand__sub">Catálogo digital · Mayoristas</div>
+        </div>
+        <button class="iconbtn" id="btnClose" type="button" aria-label="Cerrar menú">✕</button>
+      </div>
+
+      <nav class="nav">
+        <button class="nav__item is-active" data-view="revista">🏠 Inicio</button>
+        <button class="nav__item" data-view="productos">🧵 Productos</button>
+        <button class="nav__item" data-view="categorias">🏷️ Categorías</button>
+        <button class="nav__item" data-view="contacto">💬 Contacto</button>
+
+        <div class="nav__divider"></div>
+
+        <button class="nav__item" id="menuDownload">⬇️ Ver catálogo (PDF)</button>
+      </nav>
+
+      <div class="drawer__cta">
+        <div class="card">
+          <div class="card__title">Venta mayorista</div>
+          <div class="card__text">Pedí lista, mínimos y stock por WhatsApp.</div>
+          <a class="btn btn--primary" id="btnWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="stage" id="main">
+    <section class="flow">
+      <div class="flow__main">
+        <div class="pageCanvas" id="pageCanvas">
+          <div class="pageCanvas__overlay">
+            <!-- 🔑 ESTE ES EL CONTENEDOR REAL -->
+            <div class="hotspots" id="hotspots">
+              <!-- fallback visual (se borra al render) -->
+              <div class="muted" style="padding:24px">
+                Cargando catálogo…
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PDF -->
+    <section id="pdfViewer" class="pdf-viewer is-hidden" aria-label="Visor de PDF">
+      <div class="pdf-viewer__top">
+        <div class="pdf-viewer__title">Catálogo</div>
+        <button class="iconbtn" id="btnClosePdf" type="button" aria-label="Cerrar PDF">✕</button>
+      </div>
+      <iframe id="pdfFrame" src="" loading="lazy" title="Catálogo PDF"></iframe>
+    </section>
+  </main>
+
+  <!-- ======================================================
+       MODAL PRODUCTO (NECESARIO para colores)
+       IDs usados por app.js:
+       productModal, mClose, mTitle, mSub, mHeroWrap, mHeroName,
+       mSpecs, mColors, btnAdd, btnAsk, mCart, mCartCount
+       ====================================================== -->
+  <dialog class="modal" id="productModal" aria-label="Detalle del producto">
+    <div class="modal__sheet" role="document">
+      <div class="modal__top">
+        <div class="modal__head">
+          <div class="modal__title" id="mTitle">Producto</div>
+          <div class="modal__sub muted" id="mSub">Categoría</div>
+        </div>
+
+        <div class="modal__topActions">
+          <button class="iconbtn" id="mCart" type="button" aria-label="Abrir carrito desde producto">
+            🛒 <span class="basket__count" id="mCartCount">0</span>
+          </button>
+          <button class="iconbtn" id="mClose" type="button" aria-label="Cerrar">✕</button>
+        </div>
+      </div>
+
+      <div class="modal__body">
+        <div class="modal__hero">
+          <div class="modal__heroImg" id="mHeroWrap">
+            <!-- se llena desde JS -->
+          </div>
+          <div class="modal__heroName" id="mHeroName"></div>
+        </div>
+
+        <div class="modal__section" id="mSpecs"></div>
+
+        <div class="modal__section" id="mColors">
+          <!-- grilla de colores/variantes -->
+        </div>
+
+        <div class="modal__actions">
+          <button class="btn btn--primary" id="btnAdd" type="button">Agregar a mi lista</button>
+          <a class="btn" id="btnAsk" href="#" target="_blank" rel="noopener">Consultar stock y mínimos</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ======================================================
+       MODAL CARRITO
+       IDs usados por app.js:
+       basketModal, bClose, basketList, bClear, bSend
+       ====================================================== -->
+  <dialog class="modal" id="basketModal" aria-label="Carrito">
+    <div class="modal__sheet" role="document">
+      <div class="modal__top">
+        <div class="modal__head">
+          <div class="modal__title">Carrito 🛒</div>
+          <div class="modal__sub muted">Armá tu lista y enviala por WhatsApp</div>
+        </div>
+
+        <div class="modal__topActions">
+          <button class="iconbtn" id="bClose" type="button" aria-label="Cerrar">✕</button>
+        </div>
+      </div>
+
+      <div class="modal__body">
+        <div id="basketList"></div>
+
+        <div class="modal__actions">
+          <button class="btn" id="bClear" type="button">Vaciar</button>
+          <a class="btn btn--primary" id="bSend" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <!-- APP -->
+  <script src="./js/app.js"></script>
+</body>
+</html>

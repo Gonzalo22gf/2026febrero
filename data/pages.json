@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "id": "cover",
+      "title": "IMPAC2 · Revista Digital",
+      "subtitle": "Venta mayorista · Tapicería · Marroquinería · Cortinería",
+      "bg": "./assets/cover.jpg",
+      "hotspots": [
+        { "x": 10, "y": 60, "w": 35, "h": 20, "label": "Tapicería", "query": "tapiceria" },
+        { "x": 55, "y": 60, "w": 35, "h": 20, "label": "Cortinería", "query": "cortineria" },
+        { "x": 10, "y": 82, "w": 35, "h": 14, "label": "Marroquinería", "query": "marroquineria" },
+
+        { "x": 55, "y": 82, "w": 35, "h": 14, "label": "Black Out", "cat": "Black Out", "query": "black out" }
+      ]
+    },
+
+    {
+      "id": "p1",
+      "title": "Panas destacadas",
+      "subtitle": "Suavidad, color y opciones mayoristas",
+      "bg": "./assets/page-1.jpg",
+      "hotspots": [
+        { "productId": "apolo", "x": 18, "y": 32, "w": 26, "h": 30, "label": "Apolo" },
+        { "productId": "pana-murano", "x": 54, "y": 30, "w": 28, "h": 32, "label": "Murano" },
+
+        { "x": 30, "y": 70, "w": 40, "h": 18, "label": "Ver todas las Panas", "cat": "Panas", "query": "pana" }
+      ]
+    },
+
+    {
+      "id": "p2",
+      "title": "Antidesgarro / Técnico",
+      "subtitle": "Resistencia, impermeabilidad y uso intensivo",
+      "bg": "./assets/page-2.jpg",
+      "hotspots": [
+        { "productId": "cordura-lisa", "x": 36, "y": 38, "w": 32, "h": 34, "label": "Cordura Lisa" },
+
+        { "x": 10, "y": 75, "w": 35, "h": 18, "label": "Impermeable", "query": "impermeable" },
+        { "x": 55, "y": 75, "w": 35, "h": 18, "label": "Antidesgarro", "cat": "Antidesgarro", "query": "antidesgarro" }
+      ]
+    },
+
+    {
+      "id": "p3",
+      "title": "Black Out",
+      "subtitle": "Oscurece 100% · Cortinería",
+      "bg": "./assets/page-3.jpg",
+      "hotspots": [
+        { "productId": "black-out", "x": 18, "y": 30, "w": 30, "h": 36, "label": "Black Out" },
+
+        { "x": 10, "y": 72, "w": 35, "h": 18, "label": "Cortinería", "query": "cortineria" },
+        { "x": 55, "y": 72, "w": 35, "h": 18, "label": "Ver Black Out", "cat": "Black Out", "query": "black out" }
+      ]
+    },
+
+    {
+      "id": "p4",
+      "title": "Marroquinería",
+      "subtitle": "Corduras y telas técnicas",
+      "bg": "./assets/page-4.jpg",
+      "hotspots": [
+        { "productId": "cordura-estampada", "x": 16, "y": 28, "w": 32, "h": 38, "label": "Cordura Estampada" },
+        { "productId": "cordura-lisa", "x": 54, "y": 28, "w": 32, "h": 38, "label": "Cordura Lisa" },
+
+        { "x": 10, "y": 72, "w": 35, "h": 18, "label": "Ver Marroquinería", "cat": "Marroquinería", "query": "marroquineria" },
+        { "x": 55, "y": 72, "w": 35, "h": 18, "label": "Impermeables", "query": "impermeable" }
+      ]
+    }
+  ]
+}

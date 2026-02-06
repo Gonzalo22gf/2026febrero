@@ -1,0 +1,15 @@
+.home {
+  display: grid;
+  gap: 14px;
+
+  .panel {
+    background: $panel;
+    border-radius: $radius-lg;
+    padding: 14px;
+  }
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}

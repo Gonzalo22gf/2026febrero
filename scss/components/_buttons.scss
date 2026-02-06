@@ -1,0 +1,22 @@
+.btn {
+  padding: 12px 14px;
+  border-radius: $radius;
+  border: 1px solid $border;
+  background: $panel;
+  cursor: pointer;
+  font-weight: 700;
+
+  &--primary {
+    background: linear-gradient(180deg, $accent, lighten($accent, 10%));
+    border-color: $accent;
+  }
+}
+
+/* @extend obligatorio */
+.iconbtn {
+  @extend .btn;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  @include flex-center;
+}
