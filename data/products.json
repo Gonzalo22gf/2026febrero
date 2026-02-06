@@ -160,8 +160,7 @@
         { "id": "bari-negro", "name": "Negro", "img": "./assets/colors/bari/bari-negro.jpeg" },
         { "id": "bari-plata", "name": "Plata", "img": "./assets/colors/bari/bari-plata.jpeg" },
         { "id": "bari-plomo", "name": "Plomo", "img": "./assets/colors/bari/bari-plomo.jpeg" },
-        { "id": "bari-stone", "name": "Stone", "img": "./assets/colors/bari/bari-stone.jpeg" },
-        { "id": "bari-tostado", "name": "Tostado", "img": "./assets/colors/bari/bari-tostado.jpeg" }
+        { "id": "bari-stone", "name": "Stone", "img": "./assets/colors/bari/bari-stone.jpeg" }
       ]
     },
     {
@@ -185,8 +184,7 @@
         { "id": "donna-negro", "name": "Negro", "img": "./assets/colors/donna/donna-negro.jpeg" },
         { "id": "donna-nude", "name": "Nude", "img": "./assets/colors/donna/donna-nude.jpeg" },
         { "id": "donna-plata", "name": "Plata", "img": "./assets/colors/donna/donna-plata.jpeg" },
-        { "id": "donna-plomo", "name": "Plomo", "img": "./assets/colors/donna/donna-plomo.jpeg" },
-        { "id": "donna-rojo", "name": "Rojo", "img": "./assets/colors/donna/donna-rojo.jpeg" }
+        { "id": "donna-plomo", "name": "Plomo", "img": "./assets/colors/donna/donna-plomo.jpeg" }
       ]
     },
     {
